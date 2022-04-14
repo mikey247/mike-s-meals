@@ -1,8 +1,7 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Cart from "./components/Cart/Cart";
 import HeaderComponent from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
-import CartContext from "./context-store/card-context";
 import CartContextProvider from "./context-store/CartProvider";
 
 function App() {
