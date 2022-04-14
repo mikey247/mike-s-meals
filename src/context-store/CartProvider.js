@@ -1,4 +1,4 @@
-import { useContext, useReducer } from "react"
+import { useReducer } from "react"
 import CartContext from "./card-context"
 
 const defaultCartState = {
