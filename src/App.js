@@ -6,7 +6,6 @@ import CartContext from "./context-store/card-context";
 import CartContextProvider from "./context-store/CartProvider";
 
 function App() {
-  const ctx = useContext(CartContext)
   const [cart , setCart] = useState(false)
 
   const modalHandler = () => {
