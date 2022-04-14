@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useState } from "react";
+import Cart from "./components/Cart/Cart";
+import HeaderComponent from "./components/Layout/Header";
+import Meals from "./components/Meals/Meals";
+import CartContext from "./context-store/card-context";
+import CartContextProvider from "./context-store/CartProvider";
 
 function App() {
+  const ctx = useContext(CartContext)
+  const [cart , setCart] = useState(false)
+
+  const modalHandler = () => {
+    setCart(true)
+  }
+  const closeModalHandler = ()=>{
+    setCart(false)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartContextProvider>
+    {cart &&  <Cart closeModalHandler={closeModalHandler}/>}
+      <HeaderComponent modalHandler={modalHandler}/> 
+      <main>
+       <Meals/> 
+      </main>
+    </CartContextProvider>
   );
 }
 
